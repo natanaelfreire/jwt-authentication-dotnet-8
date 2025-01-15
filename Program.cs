@@ -93,6 +93,11 @@ app.MapPost("/login", (LoginRequest req, TokenGenerator tokenGenerator) => {
 })
 .AllowAnonymous();
 
+app.MapGet("/", () => {
+    return Results.Redirect("/swagger/index.html");
+})
+.ExcludeFromDescription();
+
 app.Run();
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
